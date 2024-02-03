@@ -30,7 +30,7 @@ def create_user():
 
     db.session.add(user)
     db.session.commit()
-    return "User created succesfully."
+    return "Signup successful"
 
 @api.route("/login", methods=['POST'])
 def login_user():

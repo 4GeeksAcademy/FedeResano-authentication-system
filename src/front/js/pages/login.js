@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const Login = () => {
@@ -12,9 +12,10 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        const result = await actions.checkLoginInfo(email, password);
+        const result = await actions.checkLoginInfo(emailInput, passwordInput);
 
         if (result.token) {
+            sessionStorage.setItem("token", result.token);
             navigate('/private')
         }
     };
@@ -47,7 +48,9 @@ const Login = () => {
                 <button type="submit" className="btn btn-primary">Login</button>
             </form>
             <p>New here? Sign up now:</p>
-            <button className="btn btn-primary">Sign up</button>
+            <Link to="/signup">
+                <button className="btn btn-primary"> Sign up </button>
+            </Link>
         </div>
     );
 }

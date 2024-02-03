@@ -22,7 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return "Error al registrarse.";
 					}
 
-					return "Registro exitoso."
+					return "Signup successful.";
 
 
 				} catch (error) {

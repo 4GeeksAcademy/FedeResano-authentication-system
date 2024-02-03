@@ -7,7 +7,7 @@ const Private = () => {
 
     return (
         <div>
-
+            <h3>This is a private route</h3>
         </div>
 
     );

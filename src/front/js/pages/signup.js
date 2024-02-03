@@ -22,8 +22,11 @@ const Signup = () => {
 
         const result = await actions.sendSignup(emailInput, passwordInput);
 
-        if (result === "Signup successful")
+        if (result === "Signup successful.") {
             navigate("/login");
+        } else {
+            console.error("Error signing up.")
+        }
 
     };
 
