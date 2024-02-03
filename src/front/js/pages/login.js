@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const Login = () => {
     const { actions } = useContext(Context);
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const [emailInput, setEmailInput] = useState("");
     const [passwordInput, setPasswordInput] = useState("");
@@ -15,13 +15,12 @@ const Login = () => {
         const result = await actions.checkLoginInfo(email, password);
 
         if (result.token) {
-            history.push("/private")
+            navigate('/private')
         }
     };
 
     return (
         <div className="container">
-            <h3>Log in</h3>
             <form onSubmit={handleLogin}>
                 <div className="mb-3">
                     <label htmlFor="emailInput" className="form-label">Email address</label>
@@ -47,6 +46,8 @@ const Login = () => {
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>
             </form>
+            <p>New here? Sign up now:</p>
+            <button className="btn btn-primary">Sign up</button>
         </div>
     );
 }

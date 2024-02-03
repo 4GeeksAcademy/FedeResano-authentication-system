@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 
 const Signup = () => {
     const { actions } = useContext(Context);
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const [emailInput, setEmailInput] = useState("");
     const [passwordInput, setPasswordInput] = useState("");
@@ -23,7 +23,7 @@ const Signup = () => {
         const result = await actions.sendSignup(emailInput, passwordInput);
 
         if (result === "Signup successful")
-            history.push("/login");
+            navigate("/login");
 
     };
 
